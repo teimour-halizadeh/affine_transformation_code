@@ -1,24 +1,38 @@
 import numpy as np
 import scipy.linalg as LA
 
+r"""
+    Computes the Quadratic program matrices using the system and cost matrices.
+    The final program that we want to build is:
+    $$
+	\min_{z} \quad \frac{1}{2}z^{\top} H z + x_0^{\top}Fz
+	+ { x_0^{\top} Yx_0} 
+    $$
+    $$
+    \quad \text{s.t.} \quad  Gz \leq W + Ox_0
+    $$
+"""
+
 def QP_matrices(N, A, B, C, P, Q, R, umin, umax, ymin, ymax):
 
     """
     Computes the Quadratic program matrices using the system and cost matrices
+    The matrices are given in the Section 4 of the paper.
+
     """
-    # We get he size of A
+    # We get the size of A
     n = np.shape(A)[0]
 
-    # We get he size of B
+    # We get the size of B
     m = np.shape(B)[1]
 
     # create identity matrix
     I_n = np.eye(n)
 
-    # The palce holder for the S matrix
+    # The place holder for the S matrix
     S = np.zeros((N * n, N * n))
 
-    # This is the S matrix, which containts the power of A
+    # This is the S matrix, which contains the power of A
     for j in range(N):
         
         # Here we build the power of A
@@ -38,7 +52,7 @@ def QP_matrices(N, A, B, C, P, Q, R, umin, umax, ymin, ymax):
     calS = S @ Bbar
 
 
-    # The comapct calQ
+    # The compact calQ
     calQ = LA.kron(np.eye(N), Q)
     # The last block is P
     calQ[(N-1) * n:, (N-1)*n:] = P

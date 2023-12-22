@@ -1,6 +1,16 @@
 import numpy as np
 
 
+
+'''
+All the constants that we used for simulating the QTP are given here. 
+The parameters determine the operating point of the system, number of instances that 
+we want to run the simulation, initial condition of the system, 
+the range for the privacy preserving mechanism, ... 
+'''
+
+
+
 # Model Parameters
 T1 = 63
 T2 = 91
@@ -54,6 +64,11 @@ rm = 10**6  # The range for generating random numbers
 
 n_rank = 4  # the number of states
 m_eff = 7  # a parameter for cleaning the Z data
+
+
+# The prediction horizon range for Theorem 4 in the paper
+low_range_N = 10
+up_range_N = 80
 
 
 

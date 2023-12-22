@@ -1,7 +1,7 @@
 import numpy as np
-from solve_mpc_cvx import solve_mpc_cvx
-from solve_mpc_cvx import solve_mpc_qp
-import key_generation as kg
+from private_dense_MPC.solve_mpc_cvx import solve_mpc_cvx
+from private_dense_MPC.solve_mpc_cvx import solve_mpc_qp
+import private_dense_MPC.key_generation as kg
 
 
 
